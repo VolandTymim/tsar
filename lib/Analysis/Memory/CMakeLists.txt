@@ -4,8 +4,8 @@ set(ANALYSIS_SOURCES Passes.cpp DependenceAnalysis.cpp PrivateAnalysis.cpp
   EstimateMemory.cpp DefinedMemory.cpp LiveMemory.cpp AliasTreePrinter.cpp
   DIAliasTreePrinter.cpp DIMemoryLocation.cpp DFMemoryLocation.cpp
   Delinearization.cpp ServerUtils.cpp ClonedDIMemoryMatcher.cpp
-  GlobalLiveMemory.cpp GlobalDefinedMemory.cpp DIClientServerInfo.cpp
-  DIMemoryAnalysisServer.cpp DIArrayAccess.cpp)
+  GlobalLiveMemory.cpp GlobalDefinedMemory.cpp RestrictionArgumentsPass.cpp 
+  DIClientServerInfo.cpp DIMemoryAnalysisServer.cpp DIArrayAccess.cpp)
 
 if(MSVC_IDE)
   file(GLOB_RECURSE ANALYSIS_HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
