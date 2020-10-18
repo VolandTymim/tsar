@@ -145,6 +145,7 @@ void addAfterSROAAnalysis(const GlobalOptions &GO, const DataLayout &DL,
   Passes.add(createGlobalLiveMemoryPass());
   Passes.add(createFunctionMemoryAttrsAnalysis());
   Passes.add(createDIDependencyAnalysisPass());
+  Passes.add(createRestrictionArgumentsPass());
 }
 
 void addAfterFunctionInlineAnalysis(
@@ -285,7 +286,6 @@ void DefaultQueryManager::run(llvm::Module *M, TransformationInfo *TfmInfo) {
   // avoid dangling handles. So, we add pool before environment in the manager.
   Passes.add(createDIMemoryTraitPoolStorage());
   Passes.add(createDIMemoryEnvironmentStorage());
-  Passes.add(createRestrictionArgumentsPass());
 #ifdef APC_FOUND
   Passes.add(createAPCContextStorage());
   addIfNecessary(createAPCLoopInfoBasePass(), mPrintPasses,
